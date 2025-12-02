@@ -4,5 +4,5 @@ compatibility_date = "2024-12-02"
 # 告诉 Cloudflare 静态资源在这里
 [assets]
 directory = "./dist"
-binding = "ASSETS"
+# binding = "ASSETS" # 移除这一行
 
