@@ -56,13 +56,24 @@ export const ArchitectureStack: React.FC = () => {
             <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right">
               Smart Contract
             </div>
-            <div className="md:col-span-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="md:col-span-10 grid grid-cols-2 sm:grid-cols-6 gap-4">
                {/* Nutbox */}
                <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
                   <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-2xl mb-2 shadow-sm">
                     🐿️
                   </div>
                   <div className="text-sm sm:text-base font-bold">Nutbox - ISO</div>
+               </div>
+
+               {/* TipTag */}
+               <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
+                  <div className="w-12 h-12 bg-[#FF6B00] rounded-lg flex items-center justify-center text-white font-sans font-black text-[11px] leading-none mb-2 shadow-sm p-1">
+                    <div className="text-center">
+                      <div>TIP</div>
+                      <div>TAG</div>
+                    </div>
+                  </div>
+                  <div className="text-sm sm:text-base font-bold leading-tight">TipTag - Social Payment & Trading</div>
                </div>
                
                {/* TagAI */}
@@ -71,10 +82,16 @@ export const ArchitectureStack: React.FC = () => {
                   <div className="text-sm sm:text-base font-bold leading-tight">TagAI - Social Distribution</div>
                </div>
 
+               {/* TagAI Social Prediction Market */}
+               <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
+                  <div className="bg-[#FF6B00] text-white font-bold px-2 py-0.5 rounded text-sm mb-3 shadow-sm">TAG</div>
+                  <div className="text-sm sm:text-base font-bold leading-tight">TagAI - Social prediction market</div>
+               </div>
+
                {/* Donut */}
                <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-300 to-blue-500 mb-2 shadow-sm border-4 border-white/20"></div>
-                  <div className="text-sm sm:text-base font-bold leading-tight">Donut - Social Token and Trading</div>
+                  <div className="text-sm sm:text-base font-bold leading-tight">Donut - Social Sharing</div>
                </div>
 
                {/* Others */}
