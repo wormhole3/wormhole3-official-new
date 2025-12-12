@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -10,6 +11,7 @@ import { TagAIPage } from './components/TagAIPage';
 import { DonutPage } from './components/DonutPage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { TipTagPage } from './components/TipTagPage';
+import { PredictionPage } from './components/PredictionPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,6 +22,8 @@ function App() {
         return <TipTagPage />;
       case 'tagai':
         return <TagAIPage />;
+      case 'prediction':
+        return <PredictionPage />;
       case 'donut':
         return <DonutPage />;
       case 'about':
@@ -40,7 +44,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar navigate={setCurrentPage} />
+      <Navbar navigate={setCurrentPage} currentPage={currentPage} />
       <main>
         {renderPage()}
       </main>

@@ -1,12 +1,14 @@
+
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Icons';
 import { X, Menu } from 'lucide-react';
 
 interface NavbarProps {
   navigate: (page: string) => void;
+  currentPage: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ navigate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ navigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -25,6 +27,10 @@ export const Navbar: React.FC<NavbarProps> = ({ navigate }) => {
     setIsMenuOpen(false);
   };
 
+  const getLinkClassName = (page: string) => {
+    return `hover:text-brand-600 transition-colors cursor-pointer ${currentPage === page ? 'text-purple-500 font-bold' : ''}`;
+  };
+
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4">
@@ -35,10 +41,11 @@ export const Navbar: React.FC<NavbarProps> = ({ navigate }) => {
           </div>
           
           <div className="hidden md:flex items-center gap-8 font-medium text-gray-600 font-hand text-lg">
-            <a onClick={() => handleNavigate('tiptag')} className="hover:text-brand-600 transition-colors cursor-pointer">TipTag</a>
-            <a onClick={() => handleNavigate('tagai')} className="hover:text-brand-600 transition-colors cursor-pointer">TagAI</a>
-            <a onClick={() => handleNavigate('donut')} className="hover:text-brand-600 transition-colors cursor-pointer">Donut</a>
-            <a onClick={() => handleNavigate('about')} className="hover:text-brand-600 transition-colors cursor-pointer">About US</a>
+            <a onClick={() => handleNavigate('tiptag')} className={getLinkClassName('tiptag')}>TipTag</a>
+            <a onClick={() => handleNavigate('tagai')} className={getLinkClassName('tagai')}>TagAI</a>
+            <a onClick={() => handleNavigate('prediction')} className={getLinkClassName('prediction')}>TagAI - Prediction</a>
+            <a onClick={() => handleNavigate('donut')} className={getLinkClassName('donut')}>Donut</a>
+            <a onClick={() => handleNavigate('about')} className={getLinkClassName('about')}>About US</a>
             <a href="https://tagai.gitbook.io/wh3/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">WIKI</a>
           </div>
 
@@ -51,10 +58,11 @@ export const Navbar: React.FC<NavbarProps> = ({ navigate }) => {
       {/* Mobile Menu */}
       <div className={`md:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="flex flex-col items-center justify-center h-full gap-8 font-hand text-2xl text-gray-800">
-          <a onClick={() => handleNavigate('tiptag')} className="hover:text-brand-600 transition-colors cursor-pointer">TipTag</a>
-          <a onClick={() => handleNavigate('tagai')} className="hover:text-brand-600 transition-colors cursor-pointer">TagAI</a>
-          <a onClick={() => handleNavigate('donut')} className="hover:text-brand-600 transition-colors cursor-pointer">Donut</a>
-          <a onClick={() => handleNavigate('about')} className="hover:text-brand-600 transition-colors cursor-pointer">About US</a>
+          <a onClick={() => handleNavigate('tiptag')} className={getLinkClassName('tiptag')}>TipTag</a>
+          <a onClick={() => handleNavigate('tagai')} className={getLinkClassName('tagai')}>TagAI</a>
+          <a onClick={() => handleNavigate('prediction')} className={getLinkClassName('prediction')}>TagAI - Prediction</a>
+          <a onClick={() => handleNavigate('donut')} className={getLinkClassName('donut')}>Donut</a>
+          <a onClick={() => handleNavigate('about')} className={getLinkClassName('about')}>About US</a>
           <a href="https://tagai.gitbook.io/wh3/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">WIKI</a>
         </div>
       </div>
