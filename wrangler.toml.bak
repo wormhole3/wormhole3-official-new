@@ -1,8 +1,0 @@
-# Cloudflare Pages 配置文件
-# 注意：如果使用 Cloudflare Pages（通过 GitHub Actions），此文件主要用于项目识别
-# 实际部署配置在 .github/workflows/deploy.yml 中
-# 路由重写由 public/_redirects 文件处理（构建后会在 dist/_redirects）
-
-name = "wormhole3-official-new"
-compatibility_date = "2024-12-02"
-

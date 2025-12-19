@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare
+wrangler.toml
+wrangler.toml.bak
+worker.js

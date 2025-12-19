@@ -52,6 +52,14 @@ jobs:
             echo "⚠️  _redirects file not found (this may cause routing issues)"
           fi
       
+      - name: Verify no Worker files
+        run: |
+          if [ -f "wrangler.toml" ] || [ -f "worker.js" ]; then
+            echo "⚠️  Warning: Worker files found, removing them..."
+            rm -f wrangler.toml worker.js
+          fi
+          echo "✅ No Worker files found"
+      
       - name: Deploy to Cloudflare Pages
         if: |
           (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
@@ -65,7 +73,6 @@ jobs:
           projectName: wormhole3-official-new
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
       
       - name: Deployment info
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
