@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ArchitectureSection } from './components/ArchitectureSection';
@@ -13,43 +14,42 @@ import { AboutUsPage } from './components/AboutUsPage';
 import { TipTagPage } from './components/TipTagPage';
 import { PredictionPage } from './components/PredictionPage';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+// Home page component
+const HomePage = () => (
+  <>
+    <Hero />
+    <ArchitectureSection />
+    <ArchitectureStack />
+    <ScenarioSection />
+    <Ecosystem />
+  </>
+);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'tiptag':
-        return <TipTagPage />;
-      case 'tagai':
-        return <TagAIPage />;
-      case 'prediction':
-        return <PredictionPage />;
-      case 'donut':
-        return <DonutPage />;
-      case 'about':
-        return <AboutUsPage />;
-      case 'home':
-      default:
-        return (
-          <>
-            <Hero />
-            <ArchitectureSection />
-            <ArchitectureStack />
-            <ScenarioSection />
-            <Ecosystem />
-          </>
-        );
-    }
-  };
-
+// Layout component that includes Navbar and Footer
+const Layout = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar navigate={setCurrentPage} currentPage={currentPage} />
+      <Navbar />
       <main>
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/tiptag" element={<TipTagPage />} />
+          <Route path="/tagai" element={<TagAIPage />} />
+          <Route path="/prediction" element={<PredictionPage />} />
+          <Route path="/donut" element={<DonutPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   );
 }
 
