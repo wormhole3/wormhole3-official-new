@@ -26,9 +26,11 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
+        continue-on-error: false
       
       - name: Build project
         run: npm run build
+        continue-on-error: false
       
       - name: Verify build output
         run: |
@@ -45,4 +47,13 @@ jobs:
           echo ""
           echo "Build output structure:"
           find dist -type f | head -20
+          echo ""
+          echo "Checking for _redirects file (required for client-side routing):"
+          if [ -f "dist/_redirects" ]; then
+            echo "✅ _redirects file found"
+            cat dist/_redirects
+          else
+            echo "⚠️  Warning: _redirects file not found"
+            echo "This may cause issues with direct URL access to sub-routes"
+          fi
 

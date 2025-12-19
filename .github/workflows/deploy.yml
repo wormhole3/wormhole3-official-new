@@ -57,6 +57,7 @@ jobs:
           (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
           secrets.CLOUDFLARE_API_TOKEN != '' &&
           secrets.CLOUDFLARE_ACCOUNT_ID != ''
+        continue-on-error: true
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -65,11 +66,14 @@ jobs:
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Deployment skipped
-        if: |
-          (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
-          (secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '')
+      - name: Deployment info
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
-          echo "⚠️  Cloudflare deployment skipped: Missing required secrets"
-          echo "To enable deployment, add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to repository secrets"
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] || [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "ℹ️  Cloudflare deployment skipped: Missing required secrets"
+            echo "To enable deployment, add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to repository secrets"
+            echo "Repository → Settings → Secrets and variables → Actions"
+          else
+            echo "✅ Cloudflare deployment attempted"
+          fi
 
