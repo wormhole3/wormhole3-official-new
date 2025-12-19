@@ -13,11 +13,16 @@ export const ScenarioSection: React.FC = () => {
     },
     {
       id: 1,
+      title: 'Social Prediction Market',
+      desc: 'Attach a real-time \'market consensus price\' to every post on X, enabling community members to use community tokens to participate in social prediction markets and express their views on community matters.',
+    },
+    {
+      id: 2,
       title: 'Social Distribution',
       desc: 'Distribute community tokens during daily discussions based on Proof-of-Brain.',
     },
     {
-      id: 2,
+      id: 3,
       title: 'Social Sharing',
       desc: 'Issue social tokens (IPShare) that can be traded via links/hashtags.',
     }
@@ -40,7 +45,7 @@ export const ScenarioSection: React.FC = () => {
               className={`pb-4 px-4 sm:px-8 transition-colors relative ${activeScenario === idx ? 'text-brand-600 font-bold' : 'text-gray-400 hover:text-gray-600'}`}
             >
               <span className="block mb-1">{scenario.title}</span>
-              <span className="text-xs font-sans opacity-50 block text-center">0{idx + 1}</span>
+              <span className="text-xs font-sans opacity-50 block text-center">{String(idx + 1).padStart(2, '0')}</span>
               {activeScenario === idx && (
                 <div className="absolute bottom-[-2px] left-0 right-0 h-1 bg-brand-500 rounded-full"></div>
               )}
@@ -103,8 +108,78 @@ export const ScenarioSection: React.FC = () => {
             </div>
           )}
 
-          {/* SCENARIO 2: DISTRIBUTION */}
+          {/* SCENARIO 2: SOCIAL PREDICTION MARKET */}
           {activeScenario === 1 && (
+            <div className="w-full animate-fadeIn">
+              <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
+                {/* Creator 01 */}
+                <div className="w-full lg:w-1/2 flex flex-col gap-4">
+                  {/* Social Post Card */}
+                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-gray-700 shrink-0">creator 01</div>
+                      <div className="flex flex-col gap-1">
+                        <div className="w-24 h-3 bg-gray-800 rounded-full"></div>
+                        <div className="w-16 h-2 bg-gray-300 rounded-full"></div>
+                      </div>
+                    </div>
+                    <p className="font-hand text-lg mb-4 text-gray-800">Bitcoin will flip gold.</p>
+                    <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                      <ActionButton icon={Heart} label="Like" />
+                      <ActionButton icon={MessageSquare} label="Reply" />
+                      <ActionButton icon={Repeat} label="Retweet" />
+                      <ActionButton icon={Quote} label="Quote" />
+                    </div>
+                  </div>
+                  
+                  {/* Prediction Pool Card */}
+                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
+                    <div className="bg-purple-500 rounded-lg px-4 py-2 mb-4 border-2 border-black shadow-sm">
+                      <span className="font-hand font-bold text-white text-lg">A Pool</span>
+                    </div>
+                    <p className="font-hand text-sm text-gray-600">Stake community or project tokens to predict outcomes</p>
+                  </div>
+                </div>
+
+                {/* VS Divider */}
+                <div className="flex items-center justify-center">
+                  <div className="font-hand font-bold text-4xl sm:text-6xl text-gray-400">VS</div>
+                </div>
+
+                {/* Creator 02 */}
+                <div className="w-full lg:w-1/2 flex flex-col gap-4">
+                  {/* Social Post Card */}
+                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-gray-700 shrink-0">creator 02</div>
+                      <div className="flex flex-col gap-1">
+                        <div className="w-24 h-3 bg-gray-800 rounded-full"></div>
+                        <div className="w-16 h-2 bg-gray-300 rounded-full"></div>
+                      </div>
+                    </div>
+                    <p className="font-hand text-lg mb-4 text-gray-800">Gold is the biggest threat to Bitcoin.</p>
+                    <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                      <ActionButton icon={Heart} label="Like" />
+                      <ActionButton icon={MessageSquare} label="Reply" />
+                      <ActionButton icon={Repeat} label="Retweet" />
+                      <ActionButton icon={Quote} label="Quote" />
+                    </div>
+                  </div>
+                  
+                  {/* Prediction Pool Card */}
+                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
+                    <div className="bg-purple-500 rounded-lg px-4 py-2 mb-4 border-2 border-black shadow-sm">
+                      <span className="font-hand font-bold text-white text-lg">B Pool</span>
+                    </div>
+                    <p className="font-hand text-sm text-gray-600">Stake community or project tokens to predict outcomes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* SCENARIO 3: DISTRIBUTION */}
+          {activeScenario === 2 && (
             <div className="flex flex-col lg:flex-row gap-8 items-stretch w-full animate-fadeIn justify-center">
               {/* Panel 1: Creator */}
               <div className="w-full lg:flex-1 sketch-border border-2 border-gray-600 p-4 bg-white shadow-sm flex flex-col justify-center">
@@ -180,8 +255,8 @@ export const ScenarioSection: React.FC = () => {
             </div>
           )}
 
-          {/* SCENARIO 3: SHARING (IPShare) */}
-          {activeScenario === 2 && (
+          {/* SCENARIO 4: SHARING (IPShare) */}
+          {activeScenario === 3 && (
             <div className="flex flex-col lg:flex-row gap-8 items-center w-full animate-fadeIn relative">
               <div className="flex flex-col md:flex-row items-center gap-4">
                  <div className="bg-gray-200 rounded-full px-6 py-2 font-hand font-bold shadow-md">Personal IP</div>

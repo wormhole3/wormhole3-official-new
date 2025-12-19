@@ -100,7 +100,25 @@ export const ArchitectureStack: React.FC = () => {
                </div>
             </div>
 
-            {/* --- ROW 4: Layer 1 --- */}
+            {/* --- ROW 4: Community Reputation Layer --- */}
+            <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right">
+              Community Reputation Layer
+            </div>
+            <div className="md:col-span-10">
+               <div className="bg-[#7D868E] rounded-2xl h-20 flex items-center px-4 sm:px-8 text-sm sm:text-lg shadow-lg border-b-4 border-[#5d646b] font-hand">
+                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 flex-1">
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Twitter Reputation</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Token hold</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">NFT hold</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">lp token hold</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Social Token</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Curation Graph</span>
+                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500">...</span>
+                 </div>
+               </div>
+            </div>
+
+            {/* --- ROW 5: Layer 1 --- */}
             <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right">
               Layer 1
             </div>

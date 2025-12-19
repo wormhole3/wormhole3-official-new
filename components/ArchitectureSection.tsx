@@ -38,8 +38,8 @@ export const ArchitectureSection: React.FC = () => {
 
   const tabs = [
     { id: '01', title: 'Web2 Compatible', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
-    { id: '02', title: 'Data Transmission', text: 'A native social data transmission layer that allows users to perform blockchain operations natively on social media platforms and store social data in a distributed manner.' },
-    { id: '03', title: 'Value Layer', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
+    { id: '02', title: 'Post as Protocol', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' },
+    { id: '03', title: 'Composable Community Credit', text: 'Based on an account\'s on-chain data and AI-scored social account reputation, we enable communities to define their own composable on-chain credit.' }
   ];
 
   const renderContent = () => {
@@ -67,12 +67,6 @@ export const ArchitectureSection: React.FC = () => {
         );
       case 1:
         return (
-            <div className="w-full flex flex-col items-center justify-center gap-8 lg:gap-12 animate-fadeIn relative">
-                <MainDiagramStack />
-            </div>
-        );
-      case 2:
-        return (
           <div className="w-full animate-fadeIn">
             {/* Desktop View */}
             <div className="hidden lg:flex items-center justify-center gap-16 relative h-[600px]">
@@ -98,6 +92,168 @@ export const ArchitectureSection: React.FC = () => {
                 <div className="flex items-center gap-2 font-hand font-bold text-lg">Call <ArrowDown size={24}/></div>
                 <div className="w-64 h-32 bg-gray-200 border-2 border-black rounded-2xl flex flex-col items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center p-2"><span className="font-hand font-bold text-lg">Smart Contract</span><span className="font-hand text-base italic">"Combine with # and @"</span></div>
                 <div className="flex items-center gap-2 font-hand font-bold text-lg"><ArrowUp size={24}/></div>
+              </div>
+            </div>
+          </div>
+        );
+      case 2:
+        // Helper function to create pie slice path
+        const createPieSlice = (centerX: number, centerY: number, radius: number, startAngle: number, endAngle: number) => {
+          const start = {
+            x: centerX + radius * Math.cos((startAngle - 90) * Math.PI / 180),
+            y: centerY + radius * Math.sin((startAngle - 90) * Math.PI / 180)
+          };
+          const end = {
+            x: centerX + radius * Math.cos((endAngle - 90) * Math.PI / 180),
+            y: centerY + radius * Math.sin((endAngle - 90) * Math.PI / 180)
+          };
+          const largeArcFlag = endAngle - startAngle > 180 ? 1 : 0;
+          return `M ${centerX} ${centerY} L ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y} Z`;
+        };
+
+        // Pie chart data: percentage, color, start angle
+        // 第一块: 40%, 第二块: 30%, 第三块: 15%, 第四块: 10%, 第五块: 5%
+        const pieData = [
+          { percent: 40.0, color: '#3B82F6', start: 0 },      // 第一块 - Blue (Token hold)
+          { percent: 30.0, color: '#F97316', start: 144 },    // 第二块 - Orange (Twitter re- by AI)
+          { percent: 15.0, color: '#EF4444', start: 252 },    // 第三块 - Red (Social Token)
+          { percent: 10.0, color: '#10B981', start: 306 },    // 第四块 - Light Green (Ip token hold)
+          { percent: 5.0, color: '#059669', start: 342 }      // 第五块 - Dark Green (Curation Graph)
+        ];
+
+        // Community Credit 列表数据，与饼图一一对应
+        const creditItems = [
+          { label: 'Token hold', value: 800, color: '#3B82F6' },           // 对应 40%
+          { label: 'Twitter re- (by AI)', value: 600, color: '#F97316' }, // 对应 30%
+          { label: 'Social Token', value: 300, color: '#EF4444' },        // 对应 15%
+          { label: 'Ip token hold', value: 200, color: '#10B981' },      // 对应 10%
+          { label: 'Curation Graph', value: 100, color: '#059669' }      // 对应 5%
+        ];
+
+        const centerX = 160;
+        const centerY = 160;
+        const radius = 140;
+        const labelRadius = radius * 0.7; // 标签距离圆心的距离
+        
+        // 计算每个扇形的中心角度用于标签定位
+        const getLabelPosition = (startAngle: number, percent: number) => {
+          const centerAngle = startAngle + (percent / 100) * 360 / 2;
+          const angleRad = (centerAngle - 90) * Math.PI / 180;
+          return {
+            x: centerX + labelRadius * Math.cos(angleRad),
+            y: centerY + labelRadius * Math.sin(angleRad)
+          };
+        };
+
+        return (
+          <div className="w-full animate-fadeIn">
+            {/* Desktop View */}
+            <div className="hidden lg:flex items-center justify-center gap-12 lg:gap-16 h-[600px]">
+              {/* Pie Chart */}
+              <div className="flex-shrink-0">
+                <svg width="320" height="320" viewBox="0 0 320 320" className="border-2 border-black rounded-2xl bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4">
+                  <defs>
+                    <filter id="shadow-pie">
+                      <feDropShadow dx="2" dy="2" stdDeviation="1" floodColor="rgba(0,0,0,0.2)"/>
+                    </filter>
+                  </defs>
+                  {/* Pie slices */}
+                  {pieData.map((slice, idx) => {
+                    const startAngle = slice.start;
+                    const endAngle = slice.start + (slice.percent / 100) * 360;
+                    return (
+                      <path
+                        key={idx}
+                        d={createPieSlice(centerX, centerY, radius, startAngle, endAngle)}
+                        fill={slice.color}
+                        filter="url(#shadow-pie)"
+                        stroke="black"
+                        strokeWidth="1"
+                      />
+                    );
+                  })}
+                  
+                  {/* Percentage labels - positioned at the center of each slice */}
+                  <text x={getLabelPosition(0, 40).x} y={getLabelPosition(0, 40).y} fill="black" fontSize="14" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">40.0%</text>
+                  <text x={getLabelPosition(144, 30).x} y={getLabelPosition(144, 30).y} fill="black" fontSize="14" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">30.0%</text>
+                  <text x={getLabelPosition(252, 15).x} y={getLabelPosition(252, 15).y} fill="black" fontSize="14" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">15.0%</text>
+                  <text x={getLabelPosition(306, 10).x} y={getLabelPosition(306, 10).y} fill="black" fontSize="14" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">10.0%</text>
+                  <text x={getLabelPosition(342, 5).x} y={getLabelPosition(342, 5).y} fill="black" fontSize="14" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">5.0%</text>
+                </svg>
+              </div>
+              
+              {/* Community Credit List */}
+              <div className="bg-white border-2 border-black rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] min-w-[280px]">
+                <h3 className="font-hand font-bold text-xl mb-4 text-center">Community credit</h3>
+                <div className="space-y-3">
+                  {creditItems.map((item, idx) => (
+                    <div key={idx} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="w-4 h-4 rounded-full border-2 border-black" 
+                          style={{ backgroundColor: item.color }}
+                        ></div>
+                        <span className="font-hand text-base">{item.label}</span>
+                      </div>
+                      <span className="font-hand font-bold text-lg">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Mobile View */}
+            <div className="w-full lg:hidden flex flex-col items-center gap-8 animate-fadeIn py-8">
+              {/* Pie Chart */}
+              <div className="flex-shrink-0">
+                <svg width="280" height="280" viewBox="0 0 320 320" className="border-2 border-black rounded-2xl bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4">
+                  <defs>
+                    <filter id="shadow-pie-mobile">
+                      <feDropShadow dx="2" dy="2" stdDeviation="1" floodColor="rgba(0,0,0,0.2)"/>
+                    </filter>
+                  </defs>
+                  {/* Pie slices */}
+                  {pieData.map((slice, idx) => {
+                    const startAngle = slice.start;
+                    const endAngle = slice.start + (slice.percent / 100) * 360;
+                    return (
+                      <path
+                        key={idx}
+                        d={createPieSlice(centerX, centerY, radius, startAngle, endAngle)}
+                        fill={slice.color}
+                        filter="url(#shadow-pie-mobile)"
+                        stroke="black"
+                        strokeWidth="1"
+                      />
+                    );
+                  })}
+                  
+                  {/* Percentage labels - positioned at the center of each slice */}
+                  <text x={getLabelPosition(0, 40).x} y={getLabelPosition(0, 40).y} fill="black" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">40.0%</text>
+                  <text x={getLabelPosition(144, 30).x} y={getLabelPosition(144, 30).y} fill="black" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">30.0%</text>
+                  <text x={getLabelPosition(252, 15).x} y={getLabelPosition(252, 15).y} fill="black" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">15.0%</text>
+                  <text x={getLabelPosition(306, 10).x} y={getLabelPosition(306, 10).y} fill="black" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">10.0%</text>
+                  <text x={getLabelPosition(342, 5).x} y={getLabelPosition(342, 5).y} fill="black" fontSize="12" fontFamily="Patrick Hand, cursive" fontWeight="bold" textAnchor="middle" dominantBaseline="middle">5.0%</text>
+                </svg>
+              </div>
+              
+              {/* Community Credit List */}
+              <div className="bg-white border-2 border-black rounded-2xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full max-w-sm">
+                <h3 className="font-hand font-bold text-xl mb-4 text-center">Community credit</h3>
+                <div className="space-y-3">
+                  {creditItems.map((item, idx) => (
+                    <div key={idx} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="w-4 h-4 rounded-full border-2 border-black" 
+                          style={{ backgroundColor: item.color }}
+                        ></div>
+                        <span className="font-hand text-base">{item.label}</span>
+                      </div>
+                      <span className="font-hand font-bold text-lg">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
