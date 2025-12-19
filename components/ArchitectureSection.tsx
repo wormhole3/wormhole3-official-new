@@ -37,7 +37,7 @@ export const ArchitectureSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { id: '01', title: 'Web2 Compatible', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
+    { id: '01', title: 'X as an On-chain Operations Dashboard', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
     { id: '02', title: 'Post as Protocol', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' },
     { id: '03', title: 'Composable Community Credit', text: 'Based on an account\'s on-chain data and AI-scored social account reputation, we enable communities to define their own composable on-chain credit.' }
   ];
