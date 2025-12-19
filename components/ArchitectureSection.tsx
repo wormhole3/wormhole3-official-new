@@ -4,28 +4,33 @@ import { SocialIcon, SteemLogo, Logo, PixelPLogo, PurpleArchLogo, ActionButton }
 
 // A shared component for the main diagram stack used in tabs 2 and 3
 const MainDiagramStack = () => (
-  <div className="flex flex-col items-center gap-8 w-full max-w-lg">
-    <div className="w-full bg-gray-200 border-2 border-black rounded-2xl h-28 px-4 sm:px-10 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-      <span className="font-hand font-bold text-xl sm:text-2xl">Social DA Layer</span>
-      <div className="flex gap-2 sm:gap-6"><SteemLogo className="w-10 h-10 sm:w-14 sm:h-14" /><PurpleArchLogo className="w-10 h-10 sm:w-14 sm:h-14" /></div>
+  <div className="flex flex-col items-center gap-6 w-full max-w-md">
+    <div className="w-full bg-gray-200 border-2 border-black rounded-2xl h-24 px-3 sm:px-8 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <span className="font-hand font-bold text-lg sm:text-xl">Social DA Layer</span>
+      <div className="flex gap-2 sm:gap-4"><SteemLogo className="w-8 h-8 sm:w-12 sm:h-12" /><PurpleArchLogo className="w-8 h-8 sm:w-12 sm:h-12" /></div>
     </div>
-    <div className="flex justify-around w-full px-10"><ArrowUp size={32} /><ArrowDown size={32} /></div>
-    <div className="w-full bg-purple-300 border-2 border-black rounded-2xl h-28 px-4 sm:px-10 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-      <div className="flex items-center gap-2 sm:gap-4"><Logo className="w-10 h-10 sm:w-14 sm:h-14" /><span className="font-hand font-bold text-lg sm:text-2xl">Social Oracle & Account</span></div>
-      <PixelPLogo className="w-10 h-10 sm:w-14 sm:h-14" />
+    <div className="flex justify-around w-full px-8"><ArrowUp size={24} /><ArrowDown size={24} /></div>
+    <div className="w-full bg-purple-300 border-2 border-black rounded-2xl h-24 px-3 sm:px-8 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="flex items-center gap-2 sm:gap-3"><Logo className="w-8 h-8 sm:w-12 sm:h-12" /><span className="font-hand font-bold text-base sm:text-xl">Social Oracle & Account</span></div>
+      <PixelPLogo className="w-8 h-8 sm:w-12 sm:h-12" />
     </div>
-    <div className="flex justify-around w-full px-10"><ArrowUp size={32} /><ArrowDown size={32} /></div>
-    <div className="w-full bg-white border-2 border-black rounded-[3rem] p-4 sm:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)]">
-      <div className="flex justify-between items-start mb-6">
-        <div className="flex items-center gap-2 sm:gap-4"><div className="px-4 py-2 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic">creator</div></div>
-        <div className="bg-black text-white p-2 rounded-lg"><span className="font-bold text-xl sm:text-2xl">𝕏</span></div>
+    <div className="flex justify-around w-full px-8"><ArrowUp size={24} /><ArrowDown size={24} /></div>
+    <div className="w-full bg-white border-2 border-black rounded-[3rem] p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)]">
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex items-center gap-2 sm:gap-3"><div className="px-3 py-1.5 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic text-sm sm:text-base">creator</div></div>
+        <div className="bg-black text-white p-1.5 rounded-lg"><span className="font-bold text-lg sm:text-xl">𝕏</span></div>
       </div>
-      <div className="bg-purple-300 border-2 border-black px-4 sm:px-10 py-3 rounded-2xl flex gap-4 sm:gap-8 font-mono text-xl sm:text-2xl font-bold justify-center shadow-sm my-4">
+      {/* X Content - Two horizontal lines */}
+      <div className="mb-3 space-y-1.5">
+        <div className="w-full h-1.5 bg-gray-200 rounded"></div>
+        <div className="w-full h-1.5 bg-gray-200 rounded"></div>
+      </div>
+      <div className="bg-purple-300 border-2 border-black px-3 sm:px-8 py-2 rounded-2xl flex gap-3 sm:gap-6 font-mono text-lg sm:text-xl font-bold justify-center shadow-sm my-3">
         <span>#</span><span>@</span><span>$</span><span>🔗</span>
       </div>
-      <div className="flex flex-col sm:flex-row justify-between items-center mt-6 gap-4">
-        <div className="px-4 py-2 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic">curator</div>
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-4 gap-3">
+        <div className="px-3 py-1.5 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic text-sm sm:text-base">curator</div>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5">
           <ActionButton label="Like" icon={null} /><ActionButton label="Reply" icon={null} /><ActionButton label="Retweet" icon={null} /><ActionButton label="Quote" icon={null} />
         </div>
       </div>
