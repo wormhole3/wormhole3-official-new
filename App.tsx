@@ -16,14 +16,14 @@ import { PredictionPage } from './components/PredictionPage';
 
 // Home page component
 const HomePage = () => (
-  <>
-    <Hero />
-    <ArchitectureSection />
-    <ArchitectureStack />
-    <ScenarioSection />
-    <Ecosystem />
-  </>
-);
+          <>
+            <Hero />
+            <ArchitectureSection />
+            <ArchitectureStack />
+            <ScenarioSection />
+            <Ecosystem />
+          </>
+        );
 
 // Layout component that includes Navbar and Footer
 const Layout = () => {
