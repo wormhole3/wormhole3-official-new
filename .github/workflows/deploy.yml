@@ -65,6 +65,7 @@ jobs:
           projectName: wormhole3-official-new
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
       
       - name: Deployment info
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
