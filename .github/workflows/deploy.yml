@@ -1,0 +1,75 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+      
+      - name: Check build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build failed: dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ Build failed: dist/index.html not found"
+            exit 1
+          fi
+          echo "✅ Build successful"
+          echo "📦 Build output:"
+          ls -la dist/
+          echo ""
+          echo "📄 Checking for _redirects file:"
+          if [ -f "dist/_redirects" ]; then
+            echo "✅ _redirects file found"
+            cat dist/_redirects
+          else
+            echo "⚠️  _redirects file not found (this may cause routing issues)"
+          fi
+      
+      - name: Deploy to Cloudflare Pages
+        if: |
+          (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
+          secrets.CLOUDFLARE_API_TOKEN != '' &&
+          secrets.CLOUDFLARE_ACCOUNT_ID != ''
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: wormhole3-official-new
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Deployment skipped
+        if: |
+          (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
+          (secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '')
+        run: |
+          echo "⚠️  Cloudflare deployment skipped: Missing required secrets"
+          echo "To enable deployment, add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to repository secrets"
+
