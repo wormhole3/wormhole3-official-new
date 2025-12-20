@@ -54,11 +54,22 @@ jobs:
       
       - name: Verify no Worker files
         run: |
-          if [ -f "wrangler.toml" ] || [ -f "worker.js" ]; then
-            echo "⚠️  Warning: Worker files found, removing them..."
-            rm -f wrangler.toml worker.js
+          echo "Checking for Worker-related files..."
+          if [ -f "wrangler.toml" ]; then
+            echo "⚠️  Warning: wrangler.toml found, removing..."
+            rm -f wrangler.toml
+          fi
+          if [ -f "worker.js" ]; then
+            echo "⚠️  Warning: worker.js found, removing..."
+            rm -f worker.js
+          fi
+          if [ -d "functions" ]; then
+            echo "⚠️  Warning: functions directory found, this may trigger Worker build"
           fi
           echo "✅ No Worker files found"
+          echo ""
+          echo "Files in root directory:"
+          ls -la | grep -E "wrangler|worker|functions" || echo "No Worker-related files"
       
       - name: Deploy to Cloudflare Pages
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
