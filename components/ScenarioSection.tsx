@@ -14,7 +14,7 @@ export const ScenarioSection: React.FC = () => {
     {
       id: 1,
       title: 'Social Prediction Market',
-      desc: 'Attach a real-time \'market consensus price\' to every post on X, enabling community members to use community tokens to participate in social prediction markets and express their views on community matters.',
+      desc: 'Attach a real-time "market consensus price" to every post on X, enabling community members to use community tokens to participate in social prediction markets and express their views on community matters.',
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export const ScenarioSection: React.FC = () => {
               className={`pb-4 px-4 sm:px-8 transition-colors relative ${activeScenario === idx ? 'text-brand-600 font-bold' : 'text-gray-400 hover:text-gray-600'}`}
             >
               <span className="block mb-1">{scenario.title}</span>
-              <span className="text-xs font-sans opacity-50 block text-center">{String(idx + 1).padStart(2, '0')}</span>
+              <span className="text-xs font-sans opacity-50 block text-center">0{idx + 1}</span>
               {activeScenario === idx && (
                 <div className="absolute bottom-[-2px] left-0 right-0 h-1 bg-brand-500 rounded-full"></div>
               )}
@@ -108,73 +108,75 @@ export const ScenarioSection: React.FC = () => {
             </div>
           )}
 
-          {/* SCENARIO 2: SOCIAL PREDICTION MARKET */}
+          {/* SCENARIO 2: PREDICTION MARKET (NEW) */}
           {activeScenario === 1 && (
-            <div className="w-full animate-fadeIn">
-              <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
-                {/* Creator 01 */}
-                <div className="w-full lg:w-1/2 flex flex-col gap-4">
-                  {/* Social Post Card */}
-                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full animate-fadeIn">
+              
+              {/* Left Side: Creator 01 + A Pool */}
+              <div className="flex flex-col gap-6 w-full max-w-sm">
+                {/* Tweet Card */}
+                <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm flex flex-col justify-between h-full">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-gray-700 shrink-0">creator 01</div>
-                      <div className="flex flex-col gap-1">
-                        <div className="w-24 h-3 bg-gray-800 rounded-full"></div>
-                        <div className="w-16 h-2 bg-gray-300 rounded-full"></div>
-                      </div>
+                        <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-sm text-center leading-tight border border-black text-gray-700">creator<br/>01</div>
+                        <div className="flex flex-col gap-2 w-full">
+                            <div className="w-16 h-2 bg-gray-600 rounded-full"></div>
+                            <div className="w-24 h-2 bg-gray-400 rounded-full"></div>
+                        </div>
                     </div>
-                    <p className="font-hand text-lg mb-4 text-gray-800">Bitcoin will flip gold.</p>
-                    <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <ActionButton icon={Heart} label="Like" />
-                      <ActionButton icon={MessageSquare} label="Reply" />
-                      <ActionButton icon={Repeat} label="Retweet" />
-                      <ActionButton icon={Quote} label="Quote" />
+                    <div className="font-hand text-xl mb-6">Bitcoin will flip gold.</div>
+                    <div className="flex justify-between gap-1">
+                        <div className="bg-[#C4B5FD] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Like</div>
+                        <div className="bg-[#C4B5FD] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Reply</div>
+                        <div className="bg-[#C4B5FD] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Retweet</div>
+                        <div className="bg-[#C4B5FD] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Quote</div>
                     </div>
-                  </div>
-                  
-                  {/* Prediction Pool Card */}
-                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
-                    <div className="bg-purple-500 rounded-lg px-4 py-2 mb-4 border-2 border-black shadow-sm">
-                      <span className="font-hand font-bold text-white text-lg">A Pool</span>
-                    </div>
-                    <p className="font-hand text-sm text-gray-600">Stake community or project tokens to predict outcomes</p>
-                  </div>
                 </div>
 
-                {/* VS Divider */}
-                <div className="flex items-center justify-center">
-                  <div className="font-hand font-bold text-4xl sm:text-6xl text-gray-400">VS</div>
-                </div>
-
-                {/* Creator 02 */}
-                <div className="w-full lg:w-1/2 flex flex-col gap-4">
-                  {/* Social Post Card */}
-                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-gray-700 shrink-0">creator 02</div>
-                      <div className="flex flex-col gap-1">
-                        <div className="w-24 h-3 bg-gray-800 rounded-full"></div>
-                        <div className="w-16 h-2 bg-gray-300 rounded-full"></div>
-                      </div>
+                {/* Pool A */}
+                <div className="relative pt-6">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#C4B5FD] border-2 border-black rounded-lg px-8 py-2 font-hand font-bold z-10 w-3/4 text-center shadow-sm">
+                        A Pool
                     </div>
-                    <p className="font-hand text-lg mb-4 text-gray-800">Gold is the biggest threat to Bitcoin.</p>
-                    <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                      <ActionButton icon={Heart} label="Like" />
-                      <ActionButton icon={MessageSquare} label="Reply" />
-                      <ActionButton icon={Repeat} label="Retweet" />
-                      <ActionButton icon={Quote} label="Quote" />
+                    <div className="sketch-border border-2 border-black bg-white p-6 pt-8 text-center font-hand text-lg shadow-sm">
+                        Stake community or project tokens to predict outcomes
                     </div>
-                  </div>
-                  
-                  {/* Prediction Pool Card */}
-                  <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm">
-                    <div className="bg-purple-500 rounded-lg px-4 py-2 mb-4 border-2 border-black shadow-sm">
-                      <span className="font-hand font-bold text-white text-lg">B Pool</span>
-                    </div>
-                    <p className="font-hand text-sm text-gray-600">Stake community or project tokens to predict outcomes</p>
-                  </div>
                 </div>
               </div>
+
+              {/* VS */}
+              <div className="font-hand text-4xl font-bold italic text-gray-800">VS</div>
+
+              {/* Right Side: Creator 02 + B Pool */}
+              <div className="flex flex-col gap-6 w-full max-w-sm">
+                {/* Tweet Card */}
+                <div className="sketch-border border-2 border-gray-600 p-6 bg-white shadow-sm flex flex-col justify-between h-full">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center font-hand font-bold text-sm text-center leading-tight border border-black text-gray-700">creator<br/>02</div>
+                        <div className="flex flex-col gap-2 w-full">
+                             <div className="w-16 h-2 bg-gray-600 rounded-full"></div>
+                             <div className="w-24 h-2 bg-gray-400 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div className="font-hand text-xl mb-6">Gold is the biggest threat to Bitcoin.</div>
+                    <div className="flex justify-between gap-1">
+                        <div className="bg-[#E879F9] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Like</div>
+                        <div className="bg-[#E879F9] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Reply</div>
+                        <div className="bg-[#E879F9] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Retweet</div>
+                        <div className="bg-[#E879F9] border border-black rounded px-2 py-1 text-xs font-bold font-hand">Quote</div>
+                    </div>
+                </div>
+
+                {/* Pool B */}
+                <div className="relative pt-6">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#E879F9] border-2 border-black rounded-lg px-8 py-2 font-hand font-bold z-10 w-3/4 text-center shadow-sm">
+                        B Pool
+                    </div>
+                    <div className="sketch-border border-2 border-black bg-white p-6 pt-8 text-center font-hand text-lg shadow-sm">
+                        Stake community or project tokens to predict outcomes
+                    </div>
+                </div>
+              </div>
+
             </div>
           )}
 

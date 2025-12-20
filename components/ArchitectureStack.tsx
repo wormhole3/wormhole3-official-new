@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { SocialIcon, ChainLogo, Logo, SteemLogo, YellowBoxLogo, PurpleArchLogo } from './Icons';
 
@@ -100,19 +99,25 @@ export const ArchitectureStack: React.FC = () => {
                </div>
             </div>
 
-            {/* --- ROW 4: Community Reputation Layer --- */}
-            <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right">
-              Community Reputation Layer
+            {/* --- ROW 4: Community Reputation Layer (NEW) --- */}
+            <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right leading-tight">
+              Community <br className="hidden md:block" /> Reputation Layer
             </div>
             <div className="md:col-span-10">
-               <div className="bg-[#7D868E] rounded-2xl h-20 flex items-center px-4 sm:px-8 text-sm sm:text-lg shadow-lg border-b-4 border-[#5d646b] font-hand">
-                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 flex-1">
-                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Twitter Reputation</span>
-                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Token/ NFT/lp token hold</span>
-                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Social Token</span>
-                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500 whitespace-nowrap">Curation Graph</span>
-                    <span className="px-2 sm:px-3 py-1 bg-[#6C757D] rounded-lg border border-gray-500">...</span>
+               <div className="bg-[#7D868E] rounded-2xl min-h-[5rem] py-3 flex flex-wrap items-center px-4 sm:px-6 gap-3 shadow-lg border-b-4 border-[#5d646b]">
+                 <div className="bg-[#606770] text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm whitespace-nowrap">
+                   Twitter Reputation
                  </div>
+                 <div className="bg-[#606770] text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm whitespace-nowrap">
+                   Token/ NFT/Lp token hold
+                 </div>
+                 <div className="bg-[#606770] text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm whitespace-nowrap">
+                   Social Token
+                 </div>
+                 <div className="bg-[#606770] text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-sm whitespace-nowrap">
+                   Curation Graph
+                 </div>
+                 <div className="text-white text-lg font-bold px-2">...</div>
                </div>
             </div>
 
@@ -147,7 +152,7 @@ export const ArchitectureStack: React.FC = () => {
                   </div>
                </div>
 
-               {/* Social Oracle */}
+               {/* Social Oracle - PURPLE BOX */}
                <div className="bg-[#D076FA] rounded-3xl h-36 sm:h-32 p-3 flex flex-col items-center justify-center relative shadow-lg border-b-4 border-[#B056DA]">
                   <div className="flex flex-col sm:flex-row justify-center gap-2 mb-6 items-center">
                     <Logo className="w-10 h-10 sm:w-12 sm:h-12" />

@@ -64,27 +64,18 @@ const CreatorPost = ({
 export const PredictionPage: React.FC = () => {
     const [activeScenario, setActiveScenario] = useState(0);
 
-    const rankingData = [
-        { rank: 1, name: 'BNB Chain', handle: '@BNBCHAIN', icon: 'BNB', share: '15.29%', d24: '0.00%', d7: '-0.98%', chart: [10, 10, 8, 8, 6, 6, 5], color: '#ef4444' },
-        { rank: 2, name: 'TagAI', handle: '@TagAIDAO', icon: 'TAG', share: '12.90%', d24: '0.00%', d7: '+1.69%', chart: [5, 6, 6, 5, 8, 9, 9], color: '#22c55e' },
-        { rank: 3, name: 'Binance', handle: '@binance', icon: 'BNB', share: '10.30%', d24: '0.00%', d7: '+0.37%', chart: [5, 5, 6, 8, 7, 8, 8], color: '#22c55e' },
-        { rank: 4, name: 'Wormhole3', handle: '@wormhole_3', icon: 'WH3', share: '3.45%', d24: '0.00%', d7: '+1.31%', chart: [4, 4, 5, 5, 7, 7, 7], color: '#22c55e' },
-        { rank: 5, name: 'PancakeSwap', handle: '@PancakeSwap', icon: 'CAKE', share: '3.41%', d24: '0.00%', d7: '-0.13%', chart: [8, 8, 7, 6, 6, 5, 5], color: '#ef4444' },
-        { rank: 6, name: 'YZI Labs', handle: '@yzilabs', icon: 'YZI', share: '2.81%', d24: '0.00%', d7: '-0.11%', chart: [9, 8, 8, 7, 6, 5, 4], color: '#ef4444' },
-    ];
-
-    const trendingRankingData = [
-        { rank: 1, name: 'BNB Chain', handle: '@BNBCHAIN', icon: 'BNB', share: '17.91%', d24: '-0.01%', d7: '-0.02%', chart: [10, 9, 8, 7, 6, 5, 4], color: '#ef4444' },
-        { rank: 2, name: 'TagAI', handle: '@TagAIDAO', icon: 'TAG', share: '13.03%', d24: '-0.02%', d7: '-0.03%', chart: [9, 8, 7, 6, 5, 4, 3], color: '#ef4444' },
-        { rank: 3, name: 'Binance', handle: '@binance', icon: 'BNB', share: '9.92%', d24: '-0.01%', d7: '-0.01%', chart: [8, 7, 6, 5, 4, 3, 2], color: '#ef4444' },
-        { rank: 4, name: 'Wormhole3', handle: '@wormhole_3', icon: 'WH3', share: '3.52%', d24: '0.21%', d7: '0.37%', chart: [2, 3, 4, 5, 6, 7, 8], color: '#22c55e' },
-    ];
-
     const scenarioTabs = [
         { id: '01', title: 'Single-tweet prediction', desc: 'Attach a mini prediction bar under every tweet — tagging each piece of information on X with a real-time "market consensus price."' },
         { id: '02', title: 'Opinion Battle', desc: 'Mindshare duel between two posts/viewpoints.' },
         { id: '03', title: 'Community governance', desc: "The fate of an IP, the progression of a game's storyline, the next move of a Pokémon, whether a community proposal passes, and so on — all of these can be decided and predicted by a group of people." },
-        { id: '04', title: 'Trending Ranking', desc: 'Anyone can create prediction markets around the trends of any information or accounts, with outcomes determined by community credit-based voting.' },
+        { id: '04', title: 'Trending Ranking', desc: 'Anyone can create prediction markets around the trends of any information or accounts, with outcomes determined by community credit–based voting.' },
+    ];
+
+    const trendingData = [
+        { rank: 1, name: 'BNB Chain', handle: '@BNBCHAIN', icon: 'BNB', share: '17.91%', d24: '-0.01%', d7: '-0.02%', chart: [10, 10, 9, 9, 8, 8, 7], color: '#ef4444', isUp: false },
+        { rank: 2, name: 'TagAI', handle: '@TagAIDAO', icon: 'TAG', share: '13.03%', d24: '-0.02%', d7: '-0.03%', chart: [10, 9, 9, 8, 7, 7, 6], color: '#ef4444', isUp: false },
+        { rank: 3, name: 'Binance', handle: '@binance', icon: 'BNB', share: '9.92%', d24: '-0.01%', d7: '-0.01%', chart: [8, 8, 8, 7, 7, 6, 6], color: '#ef4444', isUp: false },
+        { rank: 4, name: 'Wormhole3', handle: '@wormhole_3', icon: 'WH3', share: '3.52%', d24: '0.21%', d7: '0.37%', chart: [4, 4, 5, 5, 7, 7, 9], color: '#22c55e', isUp: true },
     ];
 
     return (
@@ -92,7 +83,7 @@ export const PredictionPage: React.FC = () => {
             {/* Hero Section */}
             <section className="py-20 sm:py-32 flex flex-col items-center justify-center text-center px-4">
                 <h1 className="font-hand text-4xl sm:text-5xl md:text-6xl mb-8 text-gray-900 leading-tight">
-                    Social Prediction Markets measure attention and reveal community truth.
+                    Social Prediction Markets measure attention <br className="hidden md:block"/> and reveal community truth.
                 </h1>
                 <p className="font-hand text-lg sm:text-xl text-gray-600 max-w-3xl">
                     Creates real-time markets for communities, brands, narratives, and ideas.
@@ -315,49 +306,47 @@ export const PredictionPage: React.FC = () => {
 
                     {/* SCENARIO 4: Trending Ranking */}
                     {activeScenario === 3 && (
-                        <div className="w-full animate-fadeIn">
-                            <div className="sketch-border border-2 border-gray-800 p-6 bg-white overflow-x-auto">
-                                <table className="w-full min-w-[800px] text-left border-collapse">
-                                    <thead>
-                                        <tr className="font-hand text-lg border-b-2 border-gray-100">
-                                            <th className="p-4 w-16">#</th>
-                                            <th className="p-4 w-64">Name</th>
-                                            <th className="p-4">Mindshare</th>
-                                            <th className="p-4">24h</th>
-                                            <th className="p-4">7d</th>
-                                            <th className="p-4 w-48">Last 7 days</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="font-sans font-medium text-gray-700">
-                                        {trendingRankingData.map((item) => (
-                                            <tr key={item.rank} className="border-b border-gray-50 hover:bg-gray-50">
-                                                <td className="p-4 font-bold">{item.rank}</td>
-                                                <td className="p-4">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xs ${item.name === 'TagAI' ? 'bg-[#ff6b00]' : item.name === 'BNB Chain' || item.name === 'Binance' ? 'bg-[#F3BA2F]' : 'bg-purple-500'}`}>
-                                                            {item.name === 'Wormhole3' ? 'WH3' : item.name === 'BNB Chain' ? 'BNB' : item.name.substring(0,3).toUpperCase()}
-                                                        </div>
-                                                        <div className="flex flex-col">
-                                                            <span className="font-bold text-gray-900">{item.name}</span>
-                                                            <span className="text-gray-500 text-sm">{item.handle}</span>
-                                                        </div>
+                        <div className="w-full overflow-x-auto animate-fadeIn">
+                             <table className="w-full min-w-[800px] text-left border-collapse">
+                                <thead>
+                                    <tr className="font-hand text-lg border-b-2 border-gray-100">
+                                        <th className="p-4 w-16">#</th>
+                                        <th className="p-4 w-64">Name</th>
+                                        <th className="p-4">Mindshare</th>
+                                        <th className="p-4">24h</th>
+                                        <th className="p-4">7d</th>
+                                        <th className="p-4 w-48">Last 7 days</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="font-sans font-medium text-gray-700">
+                                    {trendingData.map((item) => (
+                                        <tr key={item.rank} className="border-b border-gray-50 hover:bg-gray-50">
+                                            <td className="p-4 font-bold">{item.rank}</td>
+                                            <td className="p-4">
+                                                <div className="flex items-center gap-3">
+                                                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xs ${item.name === 'TagAI' ? 'bg-[#ff6b00]' : item.name === 'Wormhole3' ? 'bg-[#8B5CF6] rounded-full' : 'bg-black'}`}>
+                                                        {item.name === 'Wormhole3' ? <div className="w-2 h-2 rounded-full border border-white"></div> : item.name.substring(0,3).toUpperCase()}
                                                     </div>
-                                                </td>
-                                                <td className="p-4 font-mono">{item.share}</td>
-                                                <td className={`p-4 font-mono ${item.d24.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
-                                                    {item.d24.startsWith('-') ? '▼' : '▲'} {item.d24.replace('-', '').replace('+', '')}
-                                                </td>
-                                                <td className={`p-4 font-mono ${item.d7.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
-                                                    {item.d7.startsWith('-') ? '▼' : '▲'} {item.d7.replace('-', '').replace('+', '')}
-                                                </td>
-                                                <td className="p-4">
-                                                    <Sparkline data={item.chart} color={item.color} />
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                                                    <div className="flex flex-col">
+                                                        <span className="font-bold text-gray-900">{item.name}</span>
+                                                        <span className="text-gray-500 text-sm">{item.handle}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td className="p-4 font-mono">{item.share}</td>
+                                            <td className={`p-4 font-mono ${item.isUp ? 'text-green-500' : 'text-red-500'}`}>
+                                                {item.isUp ? '▲' : '▼'} {item.d24}
+                                            </td>
+                                            <td className={`p-4 font-mono ${item.isUp ? 'text-green-500' : 'text-red-500'}`}>
+                                                {item.isUp ? '▲' : '▼'} {item.d7}
+                                            </td>
+                                            <td className="p-4">
+                                                <Sparkline data={item.chart} color={item.color} />
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     )}
                 </div>
