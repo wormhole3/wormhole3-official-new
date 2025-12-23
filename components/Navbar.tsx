@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-8 font-medium text-gray-600 font-hand text-lg">
             <Link to="/tiptag" className={getLinkClassName('/tiptag')}>TipTag</Link>
             <Link to="/prediction" className={getLinkClassName('/prediction')}>TagAI - Prediction</Link>
-            <Link to="/tagai" className={getLinkClassName('/tagai')}>TagAI</Link>
+            <Link to="/tagai" className={getLinkClassName('/tagai')}>TagAI - Social Distribution</Link>
             <Link to="/donut" className={getLinkClassName('/donut')}>Donut</Link>
             <Link to="/about" className={getLinkClassName('/about')}>About US</Link>
             <a href="https://tagai.gitbook.io/wh3/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">WIKI</a>
@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
         <div className="flex flex-col items-center justify-center h-full gap-8 font-hand text-2xl text-gray-800">
           <Link to="/tiptag" onClick={handleLinkClick} className={getLinkClassName('/tiptag')}>TipTag</Link>
           <Link to="/prediction" onClick={handleLinkClick} className={getLinkClassName('/prediction')}>TagAI - Prediction</Link>
-          <Link to="/tagai" onClick={handleLinkClick} className={getLinkClassName('/tagai')}>TagAI</Link>
+          <Link to="/tagai" onClick={handleLinkClick} className={getLinkClassName('/tagai')}>TagAI - Social Distribution</Link>
           <Link to="/donut" onClick={handleLinkClick} className={getLinkClassName('/donut')}>Donut</Link>
           <Link to="/about" onClick={handleLinkClick} className={getLinkClassName('/about')}>About US</Link>
           <a href="https://tagai.gitbook.io/wh3/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors" onClick={handleLinkClick}>WIKI</a>

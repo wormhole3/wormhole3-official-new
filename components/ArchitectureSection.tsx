@@ -119,9 +119,8 @@ export const ArchitectureSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { id: '01', title: 'X as an On-chain Operations Dashboard', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
-    { id: '02', title: 'Post as Protocol', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' },
-    { id: '03', title: 'Composable Community Credit', text: "Based on an account's on-chain data and AI-scored social account reputation, we enable communities to define their own composable on-chain credit." }
+    { id: '01', title: 'Web3 social account', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
+    { id: '02', title: 'Social Lego combination', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
   ];
 
   const renderContent = () => {
@@ -178,8 +177,6 @@ export const ArchitectureSection: React.FC = () => {
             </div>
           </div>
         );
-      case 2:
-        return <CommunityCreditDiagram />;
       default:
         return null;
     }
@@ -189,7 +186,7 @@ export const ArchitectureSection: React.FC = () => {
     <section id="architecture" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-hand text-5xl mb-4">Highlight</h2>
+          <h2 className="font-hand text-5xl mb-4">Post as Protocol</h2>
           <p className="font-hand text-lg text-gray-600 max-w-3xl mx-auto">
             {tabs[activeTab].text}
           </p>
