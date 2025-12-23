@@ -72,7 +72,7 @@ export const ArchitectureStack: React.FC = () => {
                   <div className="bg-[#FF6B00] text-white font-bold px-2 py-0.5 rounded text-sm mb-3 shadow-sm">TAG</div>
                   <div className="text-sm sm:text-base font-bold leading-tight">TagAI - Social prediction</div>
                </div>
-
+               
                {/* TagAI */}
                <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
                   <div className="bg-[#FF6B00] text-white font-bold px-2 py-0.5 rounded text-sm mb-3 shadow-sm">TAG</div>

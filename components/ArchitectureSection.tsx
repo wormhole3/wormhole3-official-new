@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, ArrowDown, ArrowLeft, ArrowUp } from 'lucide-react';
 import { SocialIcon, SteemLogo, Logo, PixelPLogo, PurpleArchLogo, ActionButton } from './Icons';
 
-// A shared component for the main diagram stack used in the Highlight section
+// A shared component for the main diagram stack used in tabs 2 and 3
 const MainDiagramStack = () => (
   <div className="flex flex-col items-center gap-8 w-full max-w-lg">
     <div className="w-full bg-gray-200 border-2 border-black rounded-2xl h-28 px-4 sm:px-10 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -20,13 +20,6 @@ const MainDiagramStack = () => (
         <div className="flex items-center gap-2 sm:gap-4"><div className="px-4 py-2 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic">creator</div></div>
         <div className="bg-black text-white p-2 rounded-lg"><span className="font-bold text-xl sm:text-2xl">𝕏</span></div>
       </div>
-      
-      {/* Representing the text content of a post */}
-      <div className="space-y-2 mb-4 px-2">
-        <div className="h-2 w-full bg-gray-100 rounded-full"></div>
-        <div className="h-2 w-3/4 bg-gray-100 rounded-full"></div>
-      </div>
-
       <div className="bg-purple-300 border-2 border-black px-4 sm:px-10 py-3 rounded-2xl flex gap-4 sm:gap-8 font-mono text-xl sm:text-2xl font-bold justify-center shadow-sm my-4">
         <span>#</span><span>@</span><span>$</span><span>🔗</span>
       </div>
@@ -40,87 +33,13 @@ const MainDiagramStack = () => (
   </div>
 );
 
-// New component for the Community Credit diagram
-const CommunityCreditDiagram = () => (
-  <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-16 w-full max-w-5xl animate-fadeIn">
-    {/* Left: Pie Chart */}
-    <div className="sketch-border border-2 border-black p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative w-full max-w-sm aspect-square flex items-center justify-center">
-      <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
-        {/* 
-            Pie chart math:
-            Radius 20, strokeWidth 40 => fills circle from r=0 to r=40.
-            Circumference = 2 * PI * 20 ≈ 125.66
-        */}
-        <circle cx="50" cy="50" r="20" fill="transparent" stroke="#3B82F6" strokeWidth="40" strokeDasharray="50.27 125.66" /> {/* 40% */}
-        <circle cx="50" cy="50" r="20" fill="transparent" stroke="#F97316" strokeWidth="40" strokeDasharray="37.70 125.66" strokeDashoffset="-50.27" /> {/* 30% */}
-        <circle cx="50" cy="50" r="20" fill="transparent" stroke="#EF4444" strokeWidth="40" strokeDasharray="18.85 125.66" strokeDashoffset="-87.97" /> {/* 15% */}
-        <circle cx="50" cy="50" r="20" fill="transparent" stroke="#10B981" strokeWidth="40" strokeDasharray="12.57 125.66" strokeDashoffset="-106.82" /> {/* 10% */}
-        <circle cx="50" cy="50" r="20" fill="transparent" stroke="#065F46" strokeWidth="40" strokeDasharray="6.28 125.66" strokeDashoffset="-119.39" /> {/* 5% */}
-        
-        {/* Outer border */}
-        <circle cx="50" cy="50" r="40" fill="none" stroke="black" strokeWidth="2" />
-      </svg>
-      
-      {/* Percentage Labels */}
-      <div className="absolute inset-0 pointer-events-none font-hand font-bold text-xs sm:text-sm text-white drop-shadow-md sm:drop-shadow-none sm:text-black">
-          <span className="absolute top-[40%] right-[35%]">40.0%</span>
-          <span className="absolute bottom-[28%] left-[42%]">30.0%</span>
-          <span className="absolute bottom-[45%] left-[22%]">15.0%</span>
-          <span className="absolute top-[30%] left-[30%]">10.0%</span>
-          <span className="absolute top-[22%] left-[46%]">5.0%</span>
-      </div>
-    </div>
-
-    {/* Right: List */}
-    <div className="sketch-border border-2 border-black p-6 sm:p-10 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-md">
-      <h3 className="font-hand font-bold text-2xl sm:text-3xl text-center mb-8">Community credit</h3>
-      <div className="space-y-6 font-hand text-lg sm:text-xl">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-blue-500 border border-black"></div>
-            <span>Token hold</span>
-          </div>
-          <span className="font-bold">800</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-orange-500 border border-black"></div>
-            <span>Twitter re- (by AI)</span>
-          </div>
-          <span className="font-bold">600</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-red-500 border border-black"></div>
-            <span>Social Token</span>
-          </div>
-          <span className="font-bold">300</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-teal-500 border border-black"></div>
-            <span>Ip token hold</span>
-          </div>
-          <span className="font-bold">200</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-4 h-4 rounded-full bg-emerald-800 border border-black"></div>
-            <span>Curation Graph</span>
-          </div>
-          <span className="font-bold">100</span>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
 export const ArchitectureSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { id: '01', title: 'Web3 social account', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
-    { id: '02', title: 'Social Lego combination', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
+    { id: '01', title: 'Web2 Compatible', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
+    { id: '02', title: 'Data Transmission', text: 'A native social data transmission layer that allows users to perform blockchain operations natively on social media platforms and store social data in a distributed manner.' },
+    { id: '03', title: 'Value Layer', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
   ];
 
   const renderContent = () => {
@@ -147,6 +66,12 @@ export const ArchitectureSection: React.FC = () => {
           </div>
         );
       case 1:
+        return (
+            <div className="w-full flex flex-col items-center justify-center gap-8 lg:gap-12 animate-fadeIn relative">
+                <MainDiagramStack />
+            </div>
+        );
+      case 2:
         return (
           <div className="w-full animate-fadeIn">
             {/* Desktop View */}
@@ -186,7 +111,7 @@ export const ArchitectureSection: React.FC = () => {
     <section id="architecture" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-hand text-5xl mb-4">Post as Protocol</h2>
+          <h2 className="font-hand text-5xl mb-4">Post as an Protocol</h2>
           <p className="font-hand text-lg text-gray-600 max-w-3xl mx-auto">
             {tabs[activeTab].text}
           </p>
