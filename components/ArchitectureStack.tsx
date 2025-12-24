@@ -79,18 +79,18 @@ export const ArchitectureStack: React.FC = () => {
                   <div className="text-sm sm:text-base font-bold leading-tight">TagAI - Social Distribution</div>
                </div>
 
+               {/* Donut */}
+               <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-300 to-blue-500 mb-2 shadow-sm border-4 border-white/20"></div>
+                  <div className="text-sm sm:text-base font-bold leading-tight">Donut - Social Token & Sharing</div>
+               </div>
+
                {/* Nutbox */}
                <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
                   <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-2xl mb-2 shadow-sm">
                     🐿️
                   </div>
                   <div className="text-sm sm:text-base font-bold">Nutbox - ISO</div>
-               </div>
-
-               {/* Donut */}
-               <div className="bg-[#D076FA] rounded-3xl h-40 p-2 flex flex-col items-center justify-center text-center shadow-lg border-b-4 border-[#B056DA]">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-300 to-blue-500 mb-2 shadow-sm border-4 border-white/20"></div>
-                  <div className="text-sm sm:text-base font-bold leading-tight">Donut - Social Token & Sharing</div>
                </div>
 
                {/* Others */}

@@ -25,6 +25,11 @@ export const ScenarioSection: React.FC = () => {
       id: 3,
       title: 'Social Sharing',
       desc: 'Issue social tokens (IPShare) that can be traded via links/hashtags.',
+    },
+    {
+      id: 4,
+      title: 'Initial Staking Offering',
+      desc: 'A fair launch based on the hundreds-of-billions-dollar staking economy and millions of stakers. Staking rewards automatically provide a liquidity pool for project or community tokens, and stakers receive tokens per block.',
     }
   ];
 
@@ -42,7 +47,13 @@ export const ScenarioSection: React.FC = () => {
             <button
               key={scenario.id}
               onClick={() => setActiveScenario(idx)}
-              className={`pb-4 px-4 sm:px-8 transition-colors relative ${activeScenario === idx ? 'text-brand-600 font-bold' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`pb-4 px-4 sm:px-8 transition-colors relative ${
+                activeScenario === idx 
+                  ? 'text-brand-600 font-bold' 
+                  : scenario.id === 4 
+                    ? 'text-purple-600 font-bold' 
+                    : 'text-gray-400 hover:text-gray-600'
+              }`}
             >
               <span className="block mb-1">{scenario.title}</span>
               <span className="text-xs font-sans opacity-50 block text-center">0{idx + 1}</span>
@@ -291,6 +302,62 @@ export const ScenarioSection: React.FC = () => {
                   </button>
 
                </div>
+            </div>
+          )}
+
+          {/* SCENARIO 5: INITIAL STAKING OFFERING */}
+          {activeScenario === 4 && (
+            <div className="w-full animate-fadeIn">
+              <div className="sketch-border border-2 border-gray-800 p-4 sm:p-8 md:p-12 shadow-lg bg-white">
+                <div className="relative w-full max-w-5xl mx-auto min-h-[420px]">
+                  <svg viewBox="0 0 1000 420" className="w-full h-full">
+                    <defs>
+                      <marker id="arrow-dark-iso" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#3a3a3a" />
+                      </marker>
+                      <marker id="arrow-orange-iso" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#f29900" />
+                      </marker>
+                    </defs>
+
+                    {/* Circles */}
+                    <circle cx="150" cy="140" r="65" fill="#fff" stroke="#000" strokeWidth="3" />
+                    <circle cx="470" cy="140" r="70" fill="#fff" stroke="#000" strokeWidth="3" />
+                    <circle cx="800" cy="140" r="65" fill="#f6e7d1" stroke="#000" strokeWidth="3" />
+
+                    {/* Arrow: Post Token (staker -> pos) */}
+                    <line x1="215" y1="140" x2="400" y2="140" stroke="#3a3a3a" strokeWidth="3" markerEnd="url(#arrow-dark-iso)" />
+                    {/* Arrow: Post Token (pos -> validator) */}
+                    <line x1="540" y1="140" x2="730" y2="140" stroke="#3a3a3a" strokeWidth="3" markerEnd="url(#arrow-dark-iso)" />
+                    {/* Arrow: Provider Fee (pos -> validator) */}
+                    <line x1="540" y1="170" x2="730" y2="170" stroke="#f29900" strokeWidth="3" markerEnd="url(#arrow-orange-iso)" />
+                    {/* Arrow: Staking Reward (pos -> DAO Treasury) */}
+                    <line x1="520" y1="190" x2="690" y2="300" stroke="#f29900" strokeWidth="3" markerEnd="url(#arrow-orange-iso)" />
+                    {/* Arrow: token (DAO Treasury -> staker) */}
+                    <line x1="520" y1="300" x2="250" y2="210" stroke="#f29900" strokeWidth="2" strokeDasharray="10 10" markerEnd="url(#arrow-orange-iso)" />
+
+                    {/* Labels on arrows */}
+                    <text x="290" y="120" className="font-hand text-sm fill-gray-700">Post Token</text>
+                    <text x="620" y="120" className="font-hand text-sm fill-gray-700">Post Token</text>
+                    <text x="625" y="160" className="font-hand text-sm fill-[#f29900]">Provider Fee</text>
+                    <text x="560" y="245" className="font-hand text-sm fill-[#f29900]">Staking Reward</text>
+                    <text x="310" y="245" className="font-hand text-sm fill-[#f29900]">token</text>
+
+                    {/* Text inside circles */}
+                    <text x="150" y="145" textAnchor="middle" className="font-hand text-xl fill-black">Staker</text>
+                    <text x="470" y="135" textAnchor="middle" className="font-hand text-xl fill-black">PoS</text>
+                    <text x="470" y="162" textAnchor="middle" className="font-hand text-xl fill-black">Chain</text>
+                    <text x="800" y="135" textAnchor="middle" className="font-hand text-lg fill-black">validator</text>
+                    <text x="800" y="160" textAnchor="middle" className="font-hand text-lg fill-black">operator</text>
+
+                    {/* Bottom boxes */}
+                    <rect x="380" y="300" width="200" height="60" rx="12" fill="#f4a23a" stroke="#000" strokeWidth="3" />
+                    <rect x="580" y="300" width="200" height="60" rx="12" fill="#f4a23a" stroke="#000" strokeWidth="3" />
+                    <text x="480" y="336" textAnchor="middle" className="font-hand text-lg fill-black">Project or Community</text>
+                    <text x="680" y="336" textAnchor="middle" className="font-hand text-lg fill-black">DAO Treasury</text>
+                  </svg>
+                </div>
+              </div>
             </div>
           )}
 

@@ -22,6 +22,9 @@ export const Hero: React.FC = () => {
         <a href="https://donut.blog/" target="_blank" rel="noopener noreferrer" className="sketch-border border-2 border-gray-800 px-8 py-3 hover:bg-gray-50 hover:scale-105 transition-transform">
           Launch Donut
         </a>
+        <a href="https://app.nutbox.io/" target="_blank" rel="noopener noreferrer" className="sketch-border border-2 border-gray-800 px-8 py-3 hover:bg-gray-50 hover:scale-105 transition-transform">
+          Launch Nutbox
+        </a>
       </div>
     </section>
   );
