@@ -102,6 +102,83 @@ export const DonutPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Composable Community credit Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="font-hand text-4xl sm:text-5xl mb-4">Composable Community credit</h2>
+            <p className="font-hand text-lg text-gray-600 max-w-4xl mx-auto">
+              Participants&apos; staking activities within the community can serve as a component of community credit and play a role in community credit–based distribution scenarios.
+            </p>
+          </div>
+
+          <div className="sketch-border border-2 border-gray-800 p-4 sm:p-8 md:p-12 shadow-lg bg-white">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-16 w-full max-w-6xl mx-auto">
+              {/* Left: Pie Chart */}
+              <div className="sketch-border border-2 border-black p-6 sm:p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative w-full max-w-sm aspect-square flex items-center justify-center">
+                <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
+                  <circle cx="50" cy="50" r="20" fill="transparent" stroke="#E5E7EB" strokeWidth="40" strokeDasharray="50.27 125.66" /> {/* 40% - light gray */}
+                  <circle cx="50" cy="50" r="20" fill="transparent" stroke="#D1D5DB" strokeWidth="40" strokeDasharray="37.70 125.66" strokeDashoffset="-50.27" /> {/* 30% - slightly darker gray */}
+                  <circle cx="50" cy="50" r="20" fill="transparent" stroke="#D946EF" strokeWidth="40" strokeDasharray="18.85 125.66" strokeDashoffset="-87.97" /> {/* 15% - fuchsia/pink */}
+                  <circle cx="50" cy="50" r="20" fill="transparent" stroke="#9CA3AF" strokeWidth="40" strokeDasharray="12.57 125.66" strokeDashoffset="-106.82" /> {/* 10% - gray */}
+                  <circle cx="50" cy="50" r="20" fill="transparent" stroke="#6B7280" strokeWidth="40" strokeDasharray="6.28 125.66" strokeDashoffset="-119.39" /> {/* 5% - dark gray */}
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="black" strokeWidth="2" />
+                </svg>
+                <div className="absolute inset-0 pointer-events-none font-hand font-bold text-xs sm:text-sm text-white drop-shadow-md sm:drop-shadow-none sm:text-black">
+                  <span className="absolute top-[40%] right-[35%]">40.0%</span>
+                  <span className="absolute bottom-[28%] left-[42%]">30.0%</span>
+                  <span className="absolute bottom-[45%] left-[22%]">15.0%</span>
+                  <span className="absolute top-[30%] left-[30%]">10.0%</span>
+                  <span className="absolute top-[22%] left-[46%]">5.0%</span>
+                </div>
+              </div>
+
+              {/* Right: Community Credit List */}
+              <div className="sketch-border border-2 border-black p-6 sm:p-10 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-md">
+                <h3 className="font-hand font-bold text-2xl sm:text-3xl text-center mb-8">Community credit</h3>
+                <div className="space-y-6 font-hand text-lg sm:text-xl">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-black bg-white"></div>
+                      <span>Token hold</span>
+                    </div>
+                    <span className="font-bold">800</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-black bg-white"></div>
+                      <span>Twitter re- (by AI)</span>
+                    </div>
+                    <span className="font-bold">600</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-black bg-fuchsia-500"></div>
+                      <span>Social Token</span>
+                    </div>
+                    <span className="font-bold">300</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-black bg-white"></div>
+                      <span>lp token hold or staking</span>
+                    </div>
+                    <span className="font-bold">200</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full border-2 border-black bg-white"></div>
+                      <span>Curation Graph</span>
+                    </div>
+                    <span className="font-bold">100</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

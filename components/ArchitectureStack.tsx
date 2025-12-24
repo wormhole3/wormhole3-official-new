@@ -14,7 +14,7 @@ export const ArchitectureStack: React.FC = () => {
         {/* Main Container */}
         <div className="bg-[#373A40] rounded-[2.5rem] p-4 sm:p-10 shadow-2xl border-4 border-[#373A40] text-white font-hand relative">
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 gap-x-6 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 gap-x-6 items-center relative">
             
             {/* --- ROW 1: Application Layer --- */}
             <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right">
@@ -99,9 +99,9 @@ export const ArchitectureStack: React.FC = () => {
                </div>
             </div>
 
-            {/* --- ROW 4: Community Reputation Layer (NEW) --- */}
+            {/* --- ROW 4: Community Credit Layer (NEW) --- */}
             <div className="md:col-span-2 text-xl sm:text-2xl text-white font-bold md:text-right leading-tight">
-              Community <br className="hidden md:block" /> Reputation Layer
+              Community <br className="hidden md:block" /> Credit Layer
             </div>
             <div className="md:col-span-10">
                <div className="bg-[#7D868E] rounded-2xl min-h-[5rem] py-3 flex flex-wrap items-center px-4 sm:px-6 gap-3 shadow-lg border-b-4 border-[#5d646b]">
@@ -179,6 +179,27 @@ export const ArchitectureStack: React.FC = () => {
             </div>
 
           </div>
+
+          {/* SVG connecting line from Command Layer to Social Media */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 1 }} viewBox="0 0 1200 700" preserveAspectRatio="none">
+            <defs>
+              <marker id="arrowhead-arch-connect" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="white" />
+              </marker>
+            </defs>
+            {/* Three-segment polyline: horizontal -> vertical -> horizontal */}
+            {/* Command Layer: row 2, col-span-10, right edge at ~1150px, vertical center at ~192px */}
+            {/* Social Media: row 5, last column, right edge at ~1150px, vertical center at ~632px */}
+            {/* Start at Command Layer right edge, go right (horizontal), then down (vertical), then right to Social Media right edge (horizontal) */}
+            {/* Moved one unit (20px) to the right */}
+            <polyline
+              points="1170,192 1190,192 1190,632 1170,632"
+              fill="none"
+              stroke="white"
+              strokeWidth="2.5"
+              markerEnd="url(#arrowhead-arch-connect)"
+            />
+          </svg>
 
         </div>
       </div>

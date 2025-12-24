@@ -9,8 +9,8 @@ const PieChart: React.FC = () => (
       <circle cx="50" cy="50" r="20" fill="transparent" stroke="#D1D5DB" strokeWidth="40" strokeDasharray="37.70 125.66" strokeDashoffset="-50.27" />
       {/* 15% segment - darker gray */}
       <circle cx="50" cy="50" r="20" fill="transparent" stroke="#9CA3AF" strokeWidth="40" strokeDasharray="18.85 125.66" strokeDashoffset="-87.97" />
-      {/* 10% segment - highlighted green */}
-      <circle cx="50" cy="50" r="20" fill="transparent" stroke="#10B981" strokeWidth="40" strokeDasharray="12.57 125.66" strokeDashoffset="-106.82" />
+      {/* 10% segment - highlighted yellow */}
+      <circle cx="50" cy="50" r="20" fill="transparent" stroke="#FCD34D" strokeWidth="40" strokeDasharray="12.57 125.66" strokeDashoffset="-106.82" />
       {/* 5% segment - darkest gray */}
       <circle cx="50" cy="50" r="20" fill="transparent" stroke="#6B7280" strokeWidth="40" strokeDasharray="6.28 125.66" strokeDashoffset="-119.39" />
       <circle cx="50" cy="50" r="40" fill="none" stroke="black" strokeWidth="2" />
@@ -52,7 +52,7 @@ const CommunityCreditList: React.FC = () => (
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-4 h-4 rounded-full bg-teal-500 border border-black" />
+          <div className="w-4 h-4 rounded-full bg-yellow-400 border border-black" />
           <span>lp token hold or staking</span>
         </div>
         <span className="font-bold">200</span>
@@ -213,11 +213,9 @@ export const NutboxPage: React.FC = () => {
           </div>
 
           <div className="sketch-border border-2 border-gray-800 p-4 sm:p-8 md:p-12 shadow-lg bg-white">
-            <div className="sketch-border border-2 border-gray-600 p-4 sm:p-8 bg-white">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-16 w-full max-w-6xl mx-auto">
-                <PieChart />
-                <CommunityCreditList />
-              </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-16 w-full max-w-6xl mx-auto">
+              <PieChart />
+              <CommunityCreditList />
             </div>
           </div>
         </div>

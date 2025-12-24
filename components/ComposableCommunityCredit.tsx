@@ -12,7 +12,7 @@ export const ComposableCommunityCredit: React.FC = () => {
         </div>
 
         <div className="sketch-border border-2 border-gray-800 p-4 sm:p-8 md:p-12 shadow-lg bg-white">
-          <div className="sketch-border border-2 border-gray-600 p-4 sm:p-8 bg-white">
+          <div className="p-4 sm:p-8 bg-white">
             <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-16 w-full max-w-6xl mx-auto animate-fadeIn">
               {/* Left: Weight configuration panel */}
               <div className="bg-white rounded-3xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-gray-900 w-full max-w-3xl flex flex-col overflow-hidden">

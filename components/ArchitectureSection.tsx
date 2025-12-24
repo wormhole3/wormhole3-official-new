@@ -33,13 +33,44 @@ const MainDiagramStack = () => (
   </div>
 );
 
+// Smaller version for Composable smart contracts tab
+const MainDiagramStackSmall = () => (
+  <div className="flex flex-col items-center gap-6 w-full max-w-md">
+    <div className="w-full bg-gray-200 border-2 border-black rounded-2xl h-24 px-4 sm:px-8 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <span className="font-hand font-bold text-lg sm:text-xl">Social DA Layer</span>
+      <div className="flex gap-2 sm:gap-4"><SteemLogo className="w-8 h-8 sm:w-12 sm:h-12" /><PurpleArchLogo className="w-8 h-8 sm:w-12 sm:h-12" /></div>
+    </div>
+    <div className="flex justify-around w-full px-10"><ArrowUp size={24} /><ArrowDown size={24} /></div>
+    <div className="w-full bg-purple-300 border-2 border-black rounded-2xl h-24 px-4 sm:px-8 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="flex items-center gap-2 sm:gap-3"><Logo className="w-8 h-8 sm:w-12 sm:h-12" /><span className="font-hand font-bold text-base sm:text-lg">Social Oracle & Account</span></div>
+      <PixelPLogo className="w-8 h-8 sm:w-12 sm:h-12" />
+    </div>
+    <div className="flex justify-around w-full px-10"><ArrowUp size={24} /><ArrowDown size={24} /></div>
+    <div className="w-full bg-white border-2 border-black rounded-[3rem] p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)]">
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex items-center gap-2 sm:gap-3"><div className="px-3 py-1.5 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic text-sm sm:text-base">creator</div></div>
+        <div className="bg-black text-white p-1.5 rounded-lg"><span className="font-bold text-lg sm:text-xl">𝕏</span></div>
+      </div>
+      <div className="bg-purple-300 border-2 border-black px-3 sm:px-8 py-2 rounded-2xl flex gap-3 sm:gap-6 font-mono text-lg sm:text-xl font-bold justify-center shadow-sm my-3">
+        <span>#</span><span>@</span><span>$</span><span>🔗</span>
+      </div>
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-4 gap-3">
+        <div className="px-3 py-1.5 rounded-full border-2 border-black bg-gray-200 font-hand font-bold italic text-sm sm:text-base">curator</div>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <ActionButton label="Like" icon={null} /><ActionButton label="Reply" icon={null} /><ActionButton label="Retweet" icon={null} /><ActionButton label="Quote" icon={null} />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export const ArchitectureSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
     { id: '01', title: 'Web2 Compatible', text: 'Web3 social accounts compatible with Web2 social platforms, enabling users to use social media platforms as on-chain control panels.' },
-    { id: '02', title: 'Data Transmission', text: 'A native social data transmission layer that allows users to perform blockchain operations natively on social media platforms and store social data in a distributed manner.' },
-    { id: '03', title: 'Value Layer', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
+    { id: '02', title: 'On-chain command dashboard', text: 'A native social data transmission layer that allows users to perform blockchain operations natively on social media platforms and store social data in a distributed manner.' },
+    { id: '03', title: 'Composable smart contracts', text: 'A native "value layer" for social media platforms, allowing web2 users to easily combine content with smart contracts using #, @, $, 🔗, and more.' }
   ];
 
   const renderContent = () => {
@@ -76,7 +107,7 @@ export const ArchitectureSection: React.FC = () => {
           <div className="w-full animate-fadeIn">
             {/* Desktop View */}
             <div className="hidden lg:flex items-center justify-center gap-16 relative h-[600px]">
-              <MainDiagramStack />
+              <MainDiagramStackSmall />
               <div className="w-64 h-32 bg-gray-200 border-2 border-black rounded-2xl flex flex-col items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center p-2 shrink-0">
                   <span className="font-hand font-bold text-lg">Smart Contract</span>
                   <span className="font-hand text-base italic">"Combine with # and @"</span>
@@ -93,7 +124,7 @@ export const ArchitectureSection: React.FC = () => {
             </div>
             {/* Mobile View */}
             <div className="w-full lg:hidden flex flex-col items-center gap-8 animate-fadeIn">
-              <MainDiagramStack />
+              <MainDiagramStackSmall />
               <div className="w-full flex flex-col items-center gap-4">
                 <div className="flex items-center gap-2 font-hand font-bold text-lg">Call <ArrowDown size={24}/></div>
                 <div className="w-64 h-32 bg-gray-200 border-2 border-black rounded-2xl flex flex-col items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center p-2"><span className="font-hand font-bold text-lg">Smart Contract</span><span className="font-hand text-base italic">"Combine with # and @"</span></div>

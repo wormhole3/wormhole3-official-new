@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
       </h1>
 
       <div className="max-w-2xl mx-auto space-y-4 font-hand text-lg sm:text-xl text-gray-600 mb-12">
-        <p>A social account is a cryptocurrency payment account.</p>
+        <p>The social account is your cryptocurrency payment account.</p>
         <p>Web2 users can seamlessly participate in Web3. Builders can easily create community-driven mini apps.</p>
         <p>Billions of people worldwide can easily enjoy online and offline life services, just like WeChat users.</p>
       </div>
