@@ -15,7 +15,7 @@ export const ComposableCommunityCredit: React.FC = () => {
           <div className="p-4 sm:p-8 bg-white">
             <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-16 w-full max-w-6xl mx-auto animate-fadeIn">
               {/* Left: Weight configuration panel */}
-              <div className="bg-white rounded-3xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-gray-900 w-full max-w-3xl flex flex-col overflow-hidden">
+              <div className="bg-white rounded-3xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-gray-900 w-full max-w-5xl flex flex-col overflow-hidden">
                 {/* Tabs */}
                 <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b-2 border-gray-300 text-xs sm:text-sm font-hand">
                   <div className="flex items-center gap-2">
@@ -118,40 +118,40 @@ export const ComposableCommunityCredit: React.FC = () => {
               </div>
 
               {/* Right: Community credit summary */}
-              <div className="sketch-border border-2 border-black p-6 sm:p-10 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-md">
-                <h3 className="font-hand font-bold text-2xl sm:text-3xl text-center mb-8">Community credit</h3>
-                <div className="space-y-6 font-hand text-lg sm:text-xl">
+              <div className="sketch-border border-2 border-black p-4 sm:p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full max-w-sm">
+                <h3 className="font-hand font-bold text-xl sm:text-2xl text-center mb-6">Community credit</h3>
+                <div className="space-y-4 font-hand text-base sm:text-lg">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-blue-500 border border-black"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-blue-500 border border-black"></div>
                       <span>Token hold</span>
                     </div>
                     <span className="font-bold">800</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-orange-500 border border-black"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-orange-500 border border-black"></div>
                       <span>Twitter re- (by AI)</span>
                     </div>
                     <span className="font-bold">600</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-red-500 border border-black"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500 border border-black"></div>
                       <span>Social Token</span>
                     </div>
                     <span className="font-bold">300</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-teal-500 border border-black"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-teal-500 border border-black"></div>
                       <span>lp token hold or staking</span>
                     </div>
                     <span className="font-bold">200</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 rounded-full bg-emerald-800 border border-black"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-emerald-800 border border-black"></div>
                       <span>Curation Graph</span>
                     </div>
                     <span className="font-bold">100</span>
