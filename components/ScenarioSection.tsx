@@ -50,9 +50,7 @@ export const ScenarioSection: React.FC = () => {
               className={`pb-4 px-4 sm:px-8 transition-colors relative ${
                 activeScenario === idx 
                   ? 'text-brand-600 font-bold' 
-                  : scenario.id === 4 
-                    ? 'text-purple-600 font-bold' 
-                    : 'text-gray-400 hover:text-gray-600'
+                  : 'text-gray-400 hover:text-gray-600'
               }`}
             >
               <span className="block mb-1">{scenario.title}</span>
